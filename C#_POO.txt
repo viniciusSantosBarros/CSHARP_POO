@@ -1,0 +1,101 @@
+// Classe Principal
+
+using System;
+using teste;
+
+namespace Name
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Funcionarios func1 = new Funcionarios("Bruno Augusto", 1500);
+
+            func1.Apresentacao();
+            func1.ReajustarSalario();
+
+            Funcionarios func2 = new Funcionarios("Carlos Tadeu", 2500);
+
+            func2.Apresentacao();
+            func2.ReajustarSalario();
+
+            Funcionarios func3 = new Funcionarios("Danilo Barros", 4600);
+
+            func3.Apresentacao();
+            func3.ReajustarSalario();
+
+            Funcionarios func4 = new Funcionarios("Vinicius Santos", 6050);
+
+            func4.Apresentacao();
+            func4.ReajustarSalario();
+
+// Classe Funcionários
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace teste
+{
+    public class Funcionarios
+    {
+
+        //Método Construtor 
+        public Funcionarios(string nome, double salario)
+        {
+
+            this.Nome = nome;
+
+            this.Salario = salario;
+        }
+
+        public string Nome { get; set; }
+
+        public double Salario { get; set; }
+
+        public void Apresentacao()
+        {
+            Console.WriteLine("O funcionário: " + this.Nome + " atualmente possui o salário de R$: " + this.Salario);
+        }
+
+        // O Método "ReajustarSalario" calcula o reajuste do salário do funcionário com base no seu atual salário. Podendo ser aumentado em 10%, 15%, 20% ou 25%
+        public void ReajustarSalario()
+        {
+
+            if (this.Salario <= 1500)
+            {
+                this.Salario = (this.Salario * 10 / 100) + this.Salario;
+                Console.WriteLine("O salário com reajuste de 10% aumentou para R$: {0} ", this.Salario);
+                Console.WriteLine("-----------------------------------------------------");
+
+            }
+            else if (this.Salario > 1500 && this.Salario <= 3000)
+            {
+                this.Salario = (this.Salario * 15) / 100 + this.Salario;
+                Console.WriteLine("O salário com reajuste de 15% aumentou para R$: {0}", this.Salario);
+                Console.WriteLine("-----------------------------------------------------");
+
+            }
+            else if (this.Salario > 3000 && this.Salario <= 6000)
+            {
+                this.Salario = (this.Salario * 20) / 100 + this.Salario;
+                Console.WriteLine("O salário com reajuste de 20% aumentou para R$: {0}", this.Salario);
+                Console.WriteLine("-----------------------------------------------------");
+
+            }
+            else if (this.Salario > 6000)
+            {
+                this.Salario = (this.Salario * 25) / 100 + this.Salario;
+                Console.WriteLine("O salário com reajuste de 25% aumentou para R$: {0}", this.Salario);
+                Console.WriteLine("-----------------------------------------------------");
+            }
+
+        }
+
+    }
+
+}
+
+
